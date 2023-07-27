@@ -1,0 +1,12 @@
+.file-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Make the container take the full height of the viewport */
+  }
+  
+  h2 {
+    margin-bottom: 10px;
+  }
+  
