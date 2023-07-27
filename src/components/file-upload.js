@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import "./file-upload.css"
-import axios from "axios"
+import "./file-upload.css";
+import config from "../configs/config.js";
+import axios from "axios";
 
 const FileUpload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -17,7 +18,7 @@ const FileUpload = () => {
         const formData = new FormData();
         formData.append('file', selectedFile);
 
-        const response = await axios.post('http://localhost:9000/upload-file', formData, {
+        const response = await axios.post(config.apiUrl, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -34,7 +35,7 @@ const FileUpload = () => {
 
   return (
     <div className='file-upload-container'>
-      <input type="file" onChange={handleFileChange} />
+      <input type="file" accept="application/pdf" onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload</button>
     </div>
   );
